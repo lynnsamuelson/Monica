@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wrong</title>
+  </head>
+  <style>
+    body {
+      background-color: #FFF;
+    }
+    #app {
+      background-color: #3E3E3E;
+      position: relative;
+      height: 100%;
+      padding: 25%;
+      border: 1px solid;
+    }
+
+    #question {
+      position: absolute;
+      top: 17%;
+      left: 22%;
+    }
+
+    #questionText {
+      font-size: 200%;
+      text-align: center;
+    }
+
+    #answer {
+      background-color: #304581;
+      min-height: 65px;
+      margin: 25px 0 0 0;
+      text-align: center;
+      font-size: 200%;
+      padding: 20px 0 0 0;
+    }
+
+    #answerText {
+      height: 50px;
+      width: 500px;
+      font-size: 200%;
+    }
+
+    #gif {
+      margin: -153px 0 0 0;
+    }
+  </style>
+  
+  <body>
+    <div id="app">
+      <div id="question">
+        <p id="questionText">
+          
+        </p>
+        <input id="answerText" type="text" />
+        <div id="answer">Submit</div>
+      </div>
+      <img id="gif" src="" style="display: none;">
+    </div>
+  </body>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+<script>
+
+    $(document).ready(function() {
+        var i = Math.floor((Math.random() * questions.length) + 1) - 1;
+        $('#questionText').text(questions[i]);
+
+    })
+
+    $('#answer').on('click', function() {
+        $('#question').hide();
+        var i = Math.floor((Math.random() * questions.length) + 1) - 1;
+        var j = Math.floor((Math.random() * gifs.length) + 1) - 1;
+        $('#questionText').text(questions[i]);
+        $('#answerText').val("");
+        $('#gif').attr("src", gifs[i]);
+        $('#gif').show();
+        setTimeout(HideGif, 3000);
+    });
+
+    function HideGif() {
+        $('#gif').hide();
+        $('#question').show();
+    }
+
+    var questions = [
+        "What is your favorite color?",
+        "Where do you live?",
+        "What is the meaning of life?",
+        "How was your day?"
+    ];
+
+    var gifs = [
+        "https://media.giphy.com/media/hPPx8yk3Bmqys/giphy.gif", 
+        "https://media.giphy.com/media/3oKIP8quIMUnLdfTAQ/giphy.gif",
+        "https://media.giphy.com/media/4OJFCEeGzYGs0/giphy.gif",
+        "https://media.giphy.com/media/3s298sv3aevOC4fktQ/giphy.gif",
+        "https://media.giphy.com/media/Wq9RLX06zRg4UM42Qf/giphy.gif",
+        "https://media.giphy.com/media/3oKIP8quIMUnLdfTAQ/giphy.gif",
+        "https://media.giphy.com/media/SRG9hv9crciha/giphy.gif",
+        "https://media.giphy.com/media/9GJ34PEVM5JnCkfPPf/giphy.gif",
+        "https://media.giphy.com/media/l396QUa4k8rFVK2xW/giphy.gif",
+        "https://media.giphy.com/media/3o6gb27m9SE4PPJyFy/giphy.gif",
+        "https://media.giphy.com/media/l4KhTSWTlozX3flvi/giphy.gif"
+    ]
+</script>
