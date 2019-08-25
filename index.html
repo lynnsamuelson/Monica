@@ -9,11 +9,12 @@
       background-color: #FFF;
     }
     #app {
-      background-color: #3E3E3E;
+      background-color: #9E9E9E;
       position: relative;
       height: 100%;
       padding: 25%;
       border: 1px solid;
+      color: #fff;
     }
 
     #question {
@@ -76,11 +77,12 @@
 
     $('#answer').on('click', function() {
         $('#question').hide();
+
         var i = Math.floor((Math.random() * questions.length) + 1) - 1;
-        var j = Math.floor((Math.random() * gifs.length) + 1) - 1;
+        var j = Math.floor((Math.random() * gifs.length));
         $('#questionText').text(questions[i]);
         $('#answerText').val("");
-        $('#gif').attr("src", gifs[i]);
+        $('#gif').attr("src", gifs[j]);
         $('#gif').show();
         setTimeout(HideGif, 3000);
     });
